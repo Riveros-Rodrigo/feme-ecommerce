@@ -34,6 +34,7 @@ a{
 }
 aside{
     padding: 2rem;
+    padding-right: 0;
     color: var(--clr-white);
     position: sticky;
     top: 0;
@@ -46,8 +47,116 @@ aside{
     height: 15vh;
 }
 
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.boton-menu{
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-white);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .85rem;
+}
+.boton-menu.active{
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    width: 100%;
+    border-radius: 1rem 0rem 0rem 1rem;
+    position: relative;
+}
+/* hacemos un border invertido */
+.boton-menu.active::before{
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%;
+    right: 0;
+    background-color: transparent;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 0 1rem 0 var(--clr-white);
+}
+.boton-menu.active::after{
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    background-color: transparent;
+    border-top-right-radius: .5rem;
+    box-shadow: 0 -1rem 0 var(--clr-white);
+}
+
+.boton-menu > i.bi-hand-index-thumb-fill, .boton-menu > i.bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+
+.boton-carrito{
+    margin-top: 2rem;
+}
+
 .texto-footer{
     color: var(--clr-main-light);
     font-size: .85rem;
 }
 /* main */
+main{
+    background-color: var(--clr-white);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+/* le doy estilos al titulo principal */
+.titulo-principal{
+    color: var(--clr-main);
+}
+/* le doy las grillas al contenedor de productos */
+.contenedor-productos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.producto-imagen{
+    max-width: 100%;
+    border-radius: 1rem;
+}
+.producto-detalles{
+    background-color: var(--clr-main);
+    border-radius: 1rem;
+    padding: .5rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+.producto-titulo{
+    font-size: 1rem;
+}
+.producto-agregar{
+    border: 0;
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: .4rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 2px solid var(--clr-white);
+}
+.producto-agregar:hover{
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    /* un efecto */
+    transition: background-color .2s, color .2s;
+}
