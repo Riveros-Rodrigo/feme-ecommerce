@@ -1,0 +1,53 @@
+/* fuente de google */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Righteous&family=Roboto&display=swap');
+/* Para no poner los colores a cada rato */
+:root {
+    --clr-main: #4b33a8;
+    --clr-main-light: #785ce9;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+}
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+/* reset de los h1,h2,etc, p, a, input, textarea */
+h1, h2, h3, h4, h5, h6, p, a, input, textarea{
+    margin: 0;
+}
+/* saco el list style en todos los ul */
+ul{
+    list-style: none;
+}
+/* saco el subrayado en todos los enlaces */
+a{
+    text-decoration: none;
+}
+.contenedor{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--clr-main);
+}
+aside{
+    padding: 2rem;
+    color: var(--clr-white);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.logo{
+    height: 15vh;
+}
+
+.texto-footer{
+    color: var(--clr-main-light);
+    font-size: .85rem;
+}
+/* main */
