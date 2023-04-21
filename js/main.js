@@ -1,4 +1,6 @@
-[
+//Productos
+const productos = [
+    //abrigos
     {
         id: "abrigo-01",
         titulo: "Abrigo 01",
@@ -180,3 +182,27 @@
         precio: 1000
     }
 ]
+
+const contenedorProductos = document.querySelector("#contenedor-productos"); //accedo al id contenedor productos del index.html
+
+function cargarProductos(){
+//recorro el array con forEach
+    productos.forEach(producto =>{
+        
+        const div = document.createElement("div"); //creo un div
+        div.classList.add("producto"); //le agrego la class producto
+        div.innerHTML = // agrego todo el contenido con innerHTML dentro de ese div creado
+        ` 
+        <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
+        <div class="producto-detalles">
+            <h2 class="producto-titulo">${producto.titulo}</h2>
+            <p class="producto-precio">${producto.precio}</p>
+            <button class="producto-agregar" id="${producto.id}">Agregar</button>
+        </div>
+        `;
+
+        contenedorProductos.append(div);
+    })
+
+}
+cargarProductos();
