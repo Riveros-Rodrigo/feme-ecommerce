@@ -184,10 +184,14 @@ const productos = [
 ]
 
 const contenedorProductos = document.querySelector("#contenedor-productos"); //accedo al id contenedor productos del index.html
+const botonesCategoria = document.querySelectorAll(".boton-categoria") ;
 
-function cargarProductos(){
+function cargarProductos(productosElegidos){
+
+    contenedorProductos.innerHTML = "";
+
 //recorro el array con forEach
-    productos.forEach(producto =>{
+productosElegidos.forEach(producto =>{
         
         const div = document.createElement("div"); //creo un div
         div.classList.add("producto"); //le agrego la class producto
@@ -205,4 +209,20 @@ function cargarProductos(){
     })
 
 }
-cargarProductos();
+cargarProductos(productos);
+
+botonesCategoria.forEach(boton =>{
+    boton.addEventListener("click", (e) => {
+
+        botonesCategoria.forEach(boton => boton.classList.remove("active"));
+        e.currentTarget.classList.add("active"); //agrego la clase active
+
+        if(e.currentTarget.id != "todos"){
+            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
+            cargarProductos(productosBoton);
+        } else{
+            cargarProductos(productos);
+        }
+
+    })
+}) 
